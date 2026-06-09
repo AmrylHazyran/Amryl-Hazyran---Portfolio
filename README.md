@@ -3,9 +3,10 @@
 ## 📌 Project Description
 This repository contains my personal portfolio and blog website, built as an individual project for the course **CSD 34203: Special Topics in Software Development** at **Universiti Sultan Zainal Abidin (UniSZA)**. 
 
-The website serves as a professional portfolio showcasing my academic achievements, technical skills, and projects as a Computer Science graduate specializing in Computer Network Security. It features a custom, aesthetic **red and black dark-themed design** reflecting a cybersecurity/tech vibe.
+The website serves as a professional portfolio showcasing my academic achievements, technical skills, and projects as a Computer Science graduate specializing in Computer Network Security. It features a custom, dark-themed **red-and-black aesthetic** that reflects a cybersecurity/tech vibe.
 
-🔗 **Live Demo Link:** [https://yourusername.github.io/your-repo-name](https://yourusername.github.io/your-repo-name)
+🔗 **Live Demo Link:** [https://amrylhazyran.github.io/Amryl-Hazyran---Portfolio/]
+
 
 ---
 
@@ -27,8 +28,8 @@ The website serves as a professional portfolio showcasing my academic achievemen
 
 ## 📸 Screenshots
 ### Desktop View
-![Desktop Preview](6143361078507803041.jpg) 
-*(Note: Replace this image or add an actual screenshot of your website here once it's live!)*
+![Desktop Preview](live website.png) 
+
 
 ---
 
@@ -37,4 +38,4 @@ To view and test this project on your local machine, follow these steps:
 
 1. **Clone the repository:**
 ```bash
-   git clone [https://github.com/yourusername/your-repo-name.git](https://github.com/yourusername/your-repo-name.git)
+   git clone [https://github.com/AmrylHazyran/Amryl-Hazyran---Portfolio.git]

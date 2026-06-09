@@ -28,7 +28,7 @@ The website serves as a professional portfolio showcasing my academic achievemen
 
 ## 📸 Screenshots
 ### Desktop View
-![Desktop Preview](live website.png) 
+![Desktop Preview](live_website.png) 
 
 
 ---

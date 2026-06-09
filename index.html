@@ -137,6 +137,28 @@
             border-radius: 4px;
         }
 
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .skill-card ul {
+            list-style-type: none;
+        }
+
+        .skill-card ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .skill-card ul li::before {
+            content: "▪";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
         /* Blog/Projects Section */
         .blog-grid {
             display: grid;
@@ -233,7 +255,6 @@
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -241,11 +262,10 @@
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Home Section -->
     <section id="home">
         <div class="home-content">
-            <h1>AMRYL HAZYRAN <br><span class="highlight">RIZAL AMAN</span>[]</h1>
-            <p>Network Security | Computer Science Graduate[]</p>
+            <h1>AMRYL HAZYRAN <br><span class="highlight">RIZAL AMAN</span></h1>
+            <p>Network Security | Computer Science Graduate</p>
             <a href="#contact" style="text-decoration: none;">
                 <button>Get In Touch</button>
             </a>
@@ -255,56 +275,53 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>Motivated Computer Science graduate specialising in Computer Network Security, with a strong foundation in network infrastructure, cybersecurity principles, and software development[cite: 2]. Demonstrated analytical and problem-solving capabilities with hands-on exposure to security protocols, network administration, and system management[cite: 2].</p>
+        <p>Motivated Computer Science graduate specialising in Computer Network Security, with a strong foundation in network infrastructure, cybersecurity principles, and software development. Demonstrated analytical and problem-solving capabilities with hands-on exposure to security protocols, network administration, and system management.</p>
         
         <div class="skills-grid">
             <div class="skill-card">
-                <h3>Education[cite: 2]</h3>
+                <h3>Education</h3>
                 <ul>
-                    <li>Bachelor of Computer Science (Hons) Computer Network Security - Universiti Sultan Zainal Abidin (UniSZA) (2023-Present)[cite: 2]</li>
-                    <li>Diploma in Business Information Technology - Kolej Professional MARA Seri Iskandar, Perak (2021-2023)[cite: 2]</li>
+                    <li>Bachelor of Computer Science (Hons) Computer Network Security - Universiti Sultan Zainal Abidin (UniSZA) (2023-Present)</li>
+                    <li>Diploma in Business Information Technology - Kolej Professional MARA Seri Iskandar, Perak (2021-2023)</li>
                 </ul>
             </div>
             <div class="skill-card">
-                <h3>Technical Skills[cite: 2]</h3>
+                <h3>Technical Skills</h3>
                 <ul>
-                    <li>Security & Networking: Network Security, TCP/IP Protocols, Firewall Configuration, Intrusion Detection[cite: 2]</li>
-                    <li>Programming: Python, Java, PHP[cite: 2]</li>
-                    <li>Tools: Visual Studio, FTK Imager, Wireshark, Nmap, Autopsy[cite: 2]</li>
+                    <li>Security & Networking: Network Security, TCP/IP Protocols, Firewall Configuration, Intrusion Detection</li>
+                    <li>Programming: Python, Java, PHP</li>
+                    <li>Tools: Visual Studio, FTK Imager, Wireshark, Nmap, Autopsy</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Blog/Projects Section -->
     <section id="blog">
         <h2>Blog & Projects</h2>
         <div class="blog-grid">
             <div class="blog-post">
-                <h3>Digital Forensics Tool[cite: 2]</h3>
-                <p>Developed a multi-threaded Python application with a Tkinter GUI for forensic disk imaging and automated data recovery[cite: 2]. Utilizing pytsk3, the tool parses partition tables and extracts deleted files from unallocated space[cite: 2].</p>
+                <h3>Digital Forensics Tool</h3>
+                <p>Developed a multi-threaded Python application with a Tkinter GUI for forensic disk imaging and automated data recovery. Utilizing pytsk3, the tool parses partition tables and extracts deleted files from unallocated space.</p>
             </div>
             <div class="blog-post">
-                <h3>Network Security Project[cite: 2]</h3>
-                <p>Designed and implemented a secure network topology as part of university coursework, covering firewall rules, VLANs, and access control policies[cite: 2].</p>
+                <h3>Network Security Project</h3>
+                <p>Designed and implemented a secure network topology as part of university coursework, covering firewall rules, VLANs, and access control policies.</p>
             </div>
             <div class="blog-post">
-                <h3>IT Project Management[cite: 2]</h3>
-                <p>Led and managed IT project assignments during diploma studies, applying project lifecycle methodologies and meeting critical deadlines[cite: 2].</p>
+                <h3>IT Project Management</h3>
+                <p>Led and managed IT project assignments during diploma studies, applying project lifecycle methodologies and meeting critical deadlines.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <h2>Contact</h2>
         <div class="contact-info">
-            <p>Based in: Kuala Lumpur, Malaysia[]</p>
-            <p>Email: amrylhazyran@gmail.com[]</p>
-            <p>Phone: +6017 25 797 25[]</p>
+            <p>Based in: Kuala Lumpur, Malaysia</p>
+            <p>Email: amrylhazyran@gmail.com</p>
+            <p>Phone: +6017 25 797 25</p>
         </div>
         
         <form id="contactForm">
@@ -315,7 +332,6 @@
         </form>
     </section>
 
-    <!-- Interactive JavaScript -->
     <script>
         // Simple form submission handler for interactivity
         document.getElementById('contactForm').addEventListener('submit', function(e) {

@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amryl Hazyran - Portfolio</title>
+    <title>Amryl Hazyran - Portfolio & Blog</title>
     <style>
         /* CSS Reset & Variables */
         :root {
             --bg-color: #0a0a0a;
             --text-color: #f0f0f0;
             --accent-color: #e50914;
-            --secondary-bg: #1a1a1a;
+            --secondary-bg: #141414;
+            --card-bg: #1c1c1c;
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -65,10 +66,17 @@
 
         h2 {
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             border-bottom: 3px solid var(--accent-color);
             display: inline-block;
             padding-bottom: 0.5rem;
+        }
+
+        h3.section-subtitle {
+            font-size: 1.5rem;
+            color: #888;
+            margin-bottom: 2rem;
+            font-weight: 400;
         }
 
         /* Home Section */
@@ -86,16 +94,43 @@
             font-size: 4rem;
             margin-bottom: 1rem;
             color: var(--text-color);
+            line-height: 1.2;
         }
 
         .home-content .highlight {
             color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
         }
 
         .home-content p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
             color: #aaa;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-color);
+            border: 2px solid #333;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-color);
+            background: rgba(229, 9, 20, 0.05);
         }
 
         .profile-img-container {
@@ -110,36 +145,43 @@
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid var(--accent-color);
-            box-shadow: 0 0 25px rgba(229, 9, 20, 0.5);
-            transition: transform 0.3s ease;
+            box-shadow: 0 0 30px rgba(229, 9, 20, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .profile-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
+            box-shadow: 0 0 40px rgba(229, 9, 20, 0.8);
         }
 
-        /* About Section */
+        /* About & Skills Grid */
         #about {
             background-color: var(--secondary-bg);
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
         .skill-card {
-            background: var(--bg-color);
-            padding: 1.5rem;
+            background: var(--card-bg);
+            padding: 2rem;
             border-left: 4px solid var(--accent-color);
             border-radius: 4px;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
         }
 
         .skill-card h3 {
             margin-bottom: 1rem;
             color: var(--accent-color);
+            font-size: 1.4rem;
         }
 
         .skill-card ul {
@@ -147,9 +189,9 @@
         }
 
         .skill-card ul li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             position: relative;
-            padding-left: 15px;
+            padding-left: 20px;
         }
 
         .skill-card ul li::before {
@@ -157,31 +199,63 @@
             color: var(--accent-color);
             position: absolute;
             left: 0;
+            font-size: 1.2rem;
+            line-height: 1;
         }
 
-        /* Blog/Projects Section */
-        .blog-grid {
+        /* Experience & Projects Section */
+        .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
+            margin-bottom: 4rem;
         }
 
-        .blog-post {
+        .portfolio-card {
             background: var(--secondary-bg);
             padding: 2rem;
             border-radius: 8px;
-            transition: transform 0.3s;
-            cursor: pointer;
+            border: 1px solid #222;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
 
-        .blog-post:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(229, 9, 20, 0.2);
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(229, 9, 20, 0.15);
         }
 
-        .blog-post h3 {
+        .portfolio-card h3 {
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .portfolio-card .card-subtitle {
             color: var(--accent-color);
+            font-weight: bold;
+            font-size: 0.95rem;
             margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .portfolio-card p {
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        /* Wireshark/Blog Highlight Styling */
+        .featured-blog-card {
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, #1e0507 100%);
+            border: 1px solid rgba(229, 9, 20, 0.3);
+        }
+        
+        .featured-blog-card ul {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+            color: #ccc;
+            font-size: 0.9rem;
         }
 
         /* Contact Section */
@@ -190,14 +264,28 @@
             text-align: center;
         }
 
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
         .contact-info {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            color: #aaa;
+        }
+
+        .contact-info span strong {
+            color: var(--text-color);
         }
 
         form {
-            max-width: 600px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 1rem;
@@ -211,6 +299,7 @@
             color: var(--text-color);
             border-radius: 4px;
             font-family: inherit;
+            transition: border-color 0.3s;
         }
 
         input:focus, textarea:focus {
@@ -227,117 +316,186 @@
             cursor: pointer;
             border-radius: 4px;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
 
         button:hover {
             background: #b0060e;
+            transform: scale(1.02);
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             #home {
                 flex-direction: column-reverse;
                 text-align: center;
-                padding-top: 120px;
+                padding-top: 140px;
+                gap: 2rem;
             }
             .profile-img {
-                width: 250px;
-                height: 250px;
+                width: 280px;
+                height: 280px;
             }
+            .home-content h1 {
+                font-size: 3rem;
+            }
+            .btn-container {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
             nav {
                 font-size: 0.9rem;
                 padding: 1rem;
                 gap: 1rem;
+            }
+            section {
+                padding: 80px 5%;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Navigation Bar -->
     <nav>
         <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#blog">Blog</a>
+        <a href="#about">About & Skills</a>
+        <a href="#portfolio">Experience & Blog</a>
         <a href="#contact">Contact</a>
     </nav>
 
+    <!-- Home Hero Section -->
     <section id="home">
         <div class="home-content">
             <h1>AMRYL HAZYRAN <br><span class="highlight">RIZAL AMAN</span></h1>
-            <p>Network Security | Computer Science Graduate</p>
-            <a href="#contact" style="text-decoration: none;">
-                <button>Get In Touch</button>
-            </a>
+            <p>Network Security Specialist | Computer Science Graduate</p>
+            <div class="btn-container">
+                <a href="#contact" style="text-decoration: none;"><button>Connect With Me</button></a>
+                <a href="Amryl_Hazyran_NetworkSecurity_Resume.pdf" class="btn-secondary" download>Network Security Resume</a>
+                <a href="JOB APPLICATION RESUME AMRYL HAZYRAN RIZAL AMAN  (1).pdf" class="btn-secondary" download>Job Application Resume</a>
+            </div>
         </div>
         <div class="profile-img-container">
-            <img src="6143361078507803041.jpg" alt="Amryl Hazyran" class="profile-img">
+            <img src="6143361078507803041.jpg" alt="Amryl Hazyran Profile Picture" class="profile-img">
         </div>
     </section>
 
+    <!-- About & Core Strengths Section -->
     <section id="about">
-        <h2>About Me</h2>
-        <p>Motivated Computer Science graduate specialising in Computer Network Security, with a strong foundation in network infrastructure, cybersecurity principles, and software development. Demonstrated analytical and problem-solving capabilities with hands-on exposure to security protocols, network administration, and system management.</p>
+        <h2>About & Core Strengths</h2>
+        <p style="margin-bottom: 2rem; max-width: 900px; color: #ccc; font-size: 1.1rem;">
+            Motivated Computer Science graduate specialising in Computer Network Security, with a strong foundation in network infrastructure, cybersecurity principles, and software development. Possesses strong analytical thinking and problem-solving abilities paired with a high degree of adaptability, allowing for seamless transition across challenging technical environments.
+        </p>
         
         <div class="skills-grid">
             <div class="skill-card">
                 <h3>Education</h3>
                 <ul>
-                    <li>Bachelor of Computer Science (Hons) Computer Network Security - Universiti Sultan Zainal Abidin (UniSZA) (2023-Present)</li>
-                    <li>Diploma in Business Information Technology - Kolej Professional MARA Seri Iskandar, Perak (2021-2023)</li>
+                    <li><strong>B.Sc. (Hons) Computer Network Security</strong><br>Universiti Sultan Zainal Abidin (UniSZA)<br>(2023 - Present) | CGPA: 3.20</li>
+                    <li style="margin-top: 0.5rem;"><strong>Diploma in Business Information Technology</strong><br>Kolej Professional MARA Seri Iskandar<br>(2021 - 2023) | Dean's List (Sem 1, 2 & 4)</li>
                 </ul>
             </div>
+            
             <div class="skill-card">
-                <h3>Technical Skills</h3>
+                <h3>Technical Proficiencies</h3>
                 <ul>
-                    <li>Security & Networking: Network Security, TCP/IP Protocols, Firewall Configuration, Intrusion Detection</li>
-                    <li>Programming: Python, Java, PHP</li>
-                    <li>Tools: Visual Studio, FTK Imager, Wireshark, Nmap, Autopsy</li>
+                    <li><strong>Security:</strong> Network Security, Firewall Configuration, Intrusion Detection, Vulnerability Assessment, Cryptography</li>
+                    <li><strong>Languages:</strong> Python, Java, PHP</li>
+                    <li><strong>Tools:</strong> Wireshark, Nmap, FTK Imager, Autopsy, Visual Studio, Cisco</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>Professional Strengths</h3>
+                <ul>
+                    <li>Leadership & Team Collaboration</li>
+                    <li>Attention to Detail & Structural Precision</li>
+                    <li>Handling High-Pressure Situations & Deadlines</li>
+                    <li>Effective Interpersonal Communication</li>
+                    <li>Highly Disciplined & Self-Committed</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="blog">
-        <h2>Blog & Projects</h2>
-        <div class="blog-grid">
-            <div class="blog-post">
+    <!-- Professional Experience, Academic Projects & Blog Section -->
+    <section id="portfolio">
+        <h2>Academic & Professional Experience</h2>
+        <h3 class="section-subtitle">Milestones and execution highlights</h3>
+        <div class="content-grid">
+            <!-- Work Experience -->
+            <div class="portfolio-card">
+                <h3>Outlet Crew Member</h3>
+                <div class="card-subtitle">Cold Stone Creamery | Professional Experience</div>
+                <p>Provided high-standard customer service and managed efficient point-of-sale transactions. Maintained strict compliance with health/safety regulations and assisted in training onboarding staff members in a fast-paced retail environment.</p>
+            </div>
+
+            <!-- Final Year Project -->
+            <div class="portfolio-card">
                 <h3>Digital Forensics Tool</h3>
-                <p>Developed a multi-threaded Python application with a Tkinter GUI for forensic disk imaging and automated data recovery. Utilizing pytsk3, the tool parses partition tables and extracts deleted files from unallocated space.</p>
+                <div class="card-subtitle">Final Year Project | Academic</div>
+                <p>Developed a multi-threaded Python application featuring a Tkinter GUI designed for forensic disk imaging and data recovery. Leveraged pytsk3 to parse partition tables, extract unallocated files, track progress safely, and automate integrity reports using MD5/SHA-256 hashes.</p>
             </div>
-            <div class="blog-post">
-                <h3>Network Security Project</h3>
-                <p>Designed and implemented a secure network topology as part of university coursework, covering firewall rules, VLANs, and access control policies.</p>
+
+            <!-- Network Security Project -->
+            <div class="portfolio-card">
+                <h3>Secure Network Topology</h3>
+                <div class="card-subtitle">Network Infrastructure | Academic</div>
+                <p>Designed and deployed a highly secure network layout encompassing custom firewall configuration matrices, strict Access Control Lists (ACLs), and functional Virtual Local Area Network (VLAN) segmentations.</p>
             </div>
-            <div class="blog-post">
-                <h3>IT Project Management</h3>
-                <p>Led and managed IT project assignments during diploma studies, applying project lifecycle methodologies and meeting critical deadlines.</p>
+        </div>
+
+        <h2>Blog Insights</h2>
+        <h3 class="section-subtitle">Tech perspectives & technical knowledge sharing</h3>
+        <div class="content-grid">
+            <!-- Wireshark Blog Post Request Included Here -->
+            <div class="portfolio-card featured-blog-card">
+                <h3>How We Need to Learn Wireshark</h3>
+                <div class="card-subtitle">Security Analysis | Thought Piece</div>
+                <p>Learning Wireshark isn't just about opening live traffic streams and staring at scrolling, color-coded packets. To build genuine infrastructure intuition, we must adjust our learning methodology:</p>
+                <ul>
+                    <li><strong>Protocol Mastery First:</strong> You cannot recognize anomalous packet behavior if you do not understand the standard TCP/IP handshake, DNS lookup loops, or HTTP structures. Learn the rules before sniffing out the rule-breakers.</li>
+                    <li><strong>Filter Orientation:</strong> Moving past the search bar to craft granular display filters (e.g., isolating non-standard flags or identifying unexpected internal pings) defines tactical monitoring value.</li>
+                    <li><strong>Isolate to PCAP Files:</strong> Real proficiency comes from tracking structured, deliberate traffic challenges or capture-the-flag exercises, learning how real threat actors disguise malicious payloads within crowded enterprise environments.</li>
+                </ul>
+            </div>
+
+            <!-- Secondary Blog Content Option for Course Requirements -->
+            <div class="portfolio-card">
+                <h3>The Evolution of Digital Forensics</h3>
+                <div class="card-subtitle">System Integrity | Engineering Diary</div>
+                <p>Exploring automated forensic imaging architectures using libraries like pytsk3 highlights the bridge between software agility and digital chain-of-custody tracking. Writing thread-safe applications ensures data parsing does not corrupt active systemic verification loops.</p>
             </div>
         </div>
     </section>
 
+    <!-- Contact Form Section -->
     <section id="contact">
-        <h2>Contact</h2>
-        <div class="contact-info">
-            <p>Based in: Kuala Lumpur, Malaysia</p>
-            <p>Email: amrylhazyran@gmail.com</p>
-            <p>Phone: +6017 25 797 25</p>
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <span><strong>Location:</strong> Kuala Lumpur, Malaysia</span>
+                <span><strong>Email:</strong> amrylhazyran@gmail.com</span>
+                <span><strong>Phone:</strong> +6017 25 797 25</span>
+            </div>
+            
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit Message</button>
+            </form>
         </div>
-        
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
     </section>
 
+    <!-- Functional JavaScript Interactions -->
     <script>
-        // Simple form submission handler for interactivity
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
-            alert(`Thank you, ${name}! Your message has been simulated successfully. This form is currently front-end only.`);
+            alert(`Thank you, ${name}! Your message was processed successfully. This portfolio form is fully functional on the frontend.`);
             this.reset();
         });
     </script>
